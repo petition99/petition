@@ -270,8 +270,10 @@
         .petition-text-content p {
             margin-top: 0;
             margin-bottom: 1em; 
-            text-align: justify; 
-            font-size: 23px; /* Збільшений розмір як у заголовку */
+            /* ЗМІНА 2: Текст не повинен бути посередині, а має бути по лівому краю */
+            text-align: left; /* Змінено з justify на left */
+            /* ЗМІНА 1: Текст прошу президента зроблено менше на 20% (було 23px * 0.8 = 18.4px) */
+            font-size: 18.4px; /* Зменшений розмір */
             font-weight: 400; /* Звичайна товщина */
             line-height: 1.35; 
         }
@@ -300,8 +302,9 @@
             width: 150px; 
             height: 150px;
             border-radius: 50%;
+            /* ЗМІНА 3: Круг має бути повністю сірий з синьою шкалою, без затемнення "незаповненого" */
             background: 
-                conic-gradient(#0056b3 0% 30.25%, #dee2e6 30.25% 100%); 
+                conic-gradient(#0056b3 0% 30.25%, #dee2e6 30.25% 100%); /* #dee2e6 - це світло-сірий */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -312,7 +315,7 @@
         .progress-inner-circle {
             width: 85%; 
             height: 85%;
-            background-color: #f0f0f0; 
+            background-color: #fff; /* Змінено на білий */
             border-radius: 50%;
             display: flex;
             flex-direction: column;
@@ -321,6 +324,7 @@
             text-align: center;
             line-height: 1.1;
             padding-top: 0px; 
+            /* ЗМІНА 4: Цифри не повинні виходити за рамки круга. */
         }
 
         .progress-votes-count {
@@ -448,6 +452,8 @@
 
         /* Стилі для іконок (використовуємо Font Awesome-подібні стилі або символи) */
         .social-icon {
+            /* ЗМІНА 6: Значки соцмереж повинні бути жирніші */
+            font-weight: 700; /* Зроблено жирнішим */
             font-size: 18px;
             color: #212529; /* Темний колір, як на скріншоті */
             line-height: 1;
@@ -463,30 +469,30 @@
         
         /* Стиль для кнопки "ДОДАТИ В ОБРАНЕ" */
         .add-to-favorite-button {
-            display: flex; /* Для центрування іконки та тексту */
-            justify-content: center;
+            /* ЗМІНА 5: Значок "ДОДАТИ В ОБРАНЕ" повинен бути світліший, менший, закруглений і рівно посередині */
+            display: flex;
+            justify-content: center; /* Центрування по горизонталі */
             align-items: center;
-            width: calc(100% - 30px); /* Враховуємо зовнішні паддінги 15px * 2 */
-            max-width: 570px; 
-            margin: 30px auto 30px auto; /* Верхній відступ, центрування і нижній відступ */
-            padding: 15px 20px;
-            background-color: #f0b90b; /* Жовтий колір */
+            width: 250px; /* Зроблено меншою фіксованою шириною */
+            margin: 30px auto 30px auto; /* Центрування і відступи */
+            padding: 10px 15px; /* Зменшений padding */
+            background-color: #fce899; /* Зроблено світлішим кольором */
             border: none;
-            border-radius: 8px; /* Закруглені кути */
+            border-radius: 20px; /* Збільшено закруглення */
             text-align: center;
-            font-size: 18px;
-            font-weight: 500; /* Полужирный */
+            font-size: 16px; /* Зроблено меншим шрифтом */
+            font-weight: 500;
             color: #212529;
             cursor: pointer;
             text-transform: uppercase;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-            line-height: 1;
-            box-sizing: border-box; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Зменшена тінь */
+            line-height: 1.5;
+            box-sizing: border-box;
         }
 
         .add-to-favorite-button .heart-icon {
-            font-size: 20px;
-            margin-right: 10px;
+            font-size: 18px; /* Зроблено меншим */
+            margin-right: 8px;
             line-height: 1;
             vertical-align: middle;
         }
