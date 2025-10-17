@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Верхня частина сайту петицій</title>
 
-    <!-- ✅ Новый шрифт, максимально похожий на официальный -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -402,6 +401,42 @@
             font-size: 18px;
             margin-right: 8px;
         }
+
+        /* === Стили для добавленного блока (как на скриншоте) === */
+        .footer-info {
+            padding: 40px 15px 40px 15px; /* Увеличил padding, чтобы блок не прилипал к кнопке */
+            text-align: center; 
+            font-size: 16px; 
+            line-height: 1.5;
+            color: #212529;
+            border-top: 1px solid #dee2e6; /* Можна додати легку лінію зверху */
+            margin-top: 40px; 
+        }
+
+        .copyright-text {
+            font-size: 14px; /* Трохи менший шрифт для першого блоку */
+            margin-bottom: 30px; 
+            line-height: 1.6; 
+            font-weight: 400;
+        }
+        
+        .copyright-text span {
+            display: block;
+        }
+
+        .footer-link {
+            display: block;
+            text-decoration: none;
+            color: #212529; /* Колір посилання як на скріншоті */
+            font-size: 18px; /* Більший шрифт для посилань */
+            margin-bottom: 25px; /* Більший відступ між посиланнями */
+            font-weight: 400; /* Зробив його 400, щоб відповідало скріншоту */
+            text-transform: none;
+        }
+
+        .footer-link:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 
@@ -526,8 +561,20 @@
     <button class="add-to-favorite-button">
         <span class="heart-icon">&#x2661;</span> ДОДАТИ В ОБРАНЕ
     </button>
-
-</div>
+    
+    <div class="footer-info">
+        <div class="copyright-text">
+            Усі права на матеріали, розміщені на цьому
+            <span>сайті, належать Офісу Президента України.</span>
+            <span>01220, м. Київ, вул. Банкова, 11</span>
+        </div>
+        
+        <a href="#" class="footer-link">Урядовий портал</a>
+        <a href="#" class="footer-link">Верховна Рада України</a>
+        <a href="#" class="footer-link">Конституційний Суд України</a>
+        <a href="#" class="footer-link">Конституція України</a>
+    </div>
+    </div>
 
 </body>
 </html>
