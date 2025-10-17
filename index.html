@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Верхня частина сайту петицій</title>
 
-    <!-- ✅ Новый шрифт, максимально похожий на официальный -->
+    <!-- ✅ Шрифт Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -336,47 +336,56 @@
             cursor: pointer;
         }
 
+        /* === ОБНОВЛЕННЫЙ НИЖНИЙ БЛОК === */
         .section-title {
             font-size: 16px;
-            margin-top: 30px;
-            margin-bottom: 10px;
+            font-weight: 600;
             text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 15px;
         }
 
         .petition-name-after-title {
-            font-size: 23px; 
+            font-size: 18px;
             font-weight: 400;
-            line-height: 1.35;
-            margin-bottom: 30px;
+            line-height: 1.4;
+            margin-bottom: 35px;
         }
 
-        .social-share-container {
+        .social-icons {
             display: flex;
-            gap: 10px;
-            margin: 15px 0 30px;
-        }
-
-        .social-icon-button {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 1px solid #dee2e6; 
-            background-color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
+            gap: 15px;
+            margin-bottom: 25px;
         }
 
         .social-icon {
-            font-weight: 700; 
-            font-size: 18px;
-            color: #212529;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid #dee2e6;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .social-icon:hover {
+            background-color: #f8f9fa;
+            transform: scale(1.08);
+        }
+
+        .social-icon img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
         }
 
         .copy-url-text {
             font-size: 16px;
-            margin-bottom: 30px; 
+            color: #212529;
+            margin-bottom: 30px;
         }
 
         .add-to-favorite-button {
@@ -384,11 +393,11 @@
             justify-content: center;
             align-items: center;
             width: 250px;
-            margin: 30px auto;
-            padding: 10px 15px;
+            margin: 0 auto 50px;
+            padding: 12px 16px;
             background-color: #fce899;
             border: none;
-            border-radius: 20px;
+            border-radius: 30px;
             text-align: center;
             font-size: 16px;
             font-weight: 500;
@@ -396,6 +405,12 @@
             cursor: pointer;
             text-transform: uppercase;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .add-to-favorite-button:hover {
+            background-color: #f9e171;
+            transform: scale(1.03);
         }
 
         .add-to-favorite-button .heart-icon {
@@ -505,29 +520,19 @@
         </div>
     </div>
 
+    <!-- ✅ Обновлённый нижний блок -->
     <div class="post-progress-elements">
         <div class="section-title">СУТЬ ЗВЕРНЕННЯ:</div>
         <div class="petition-name-after-title">
-            Про присвоєння звання Героя України
-            <span>(посмертно) Новікову Олександру</span>
-            <span>Романовичу</span>
+            Присвоїти звання Героя України (посмертно)
+            військовослужбовцю Збройних Сил України
+            Коліснику Сергію Євгенійовичу
         </div>
 
         <div class="section-title">ПОДІЛІТЬСЯ ПЕТИЦІЄЮ:</div>
-        <div class="social-share-container">
-            <div class="social-icon-button"><span class="social-icon">f</span></div>
-            <div class="social-icon-button"><span class="social-icon">t</span></div>
-            <div class="social-icon-button"><span class="social-icon">&#9993;</span></div>
-        </div>
-
-        <div class="copy-url-text">Скопіювання url петиції</div>
-    </div>
-
-    <button class="add-to-favorite-button">
-        <span class="heart-icon">&#x2661;</span> ДОДАТИ В ОБРАНЕ
-    </button>
-
-</div>
-
-</body>
-</html>
+        <div class="social-icons">
+            <div class="social-icon">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
+            </div>
+            <div class="social-icon">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="
