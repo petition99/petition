@@ -1,97 +1,529 @@
 <!doctype html>
 <html lang="uk">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Петиція — Прогрес голосів</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Верхня частина сайту петицій</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Noto Sans', 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #212529;
+            line-height: 1.35;
+            font-size: 16px;
+            font-weight: 400;
+        }
 
-  <style>
-    body {
-      font-family: 'Noto Sans', sans-serif;
-      background-color: #fff;
-      margin: 0;
-      padding: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        .container {
+            max-width: 600px; 
+            margin: 0 auto;
+            padding: 0;
+        }
 
-    .progress-chart-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        .site-header {
+            display: flex;
+            align-items: flex-start;
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee; 
+        }
 
-    .progress-circle {
-      position: relative;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: conic-gradient(
-        #0056b3 0deg 121deg,
-        #e0e0e0 121deg 360deg
-      );
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        .site-logo-container {
+            width: 34.8px;
+            height: 34.8px;
+            margin-right: 15px;
+            border-radius: 4px;
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0; 
+        }
 
-    .progress-inner-circle {
-      position: absolute;
-      width: 86%;
-      height: 86%;
-      background-color: #e9ecef; /* тот же светло-серый фон, что на скрине */
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      line-height: 1.1;
-    }
+        .site-logo {
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+        }
 
-    .progress-votes-count {
-      font-size: 64px;
-      font-weight: 500;
-      color: #212529;
-      margin-bottom: 5px;
-    }
+        .site-title-block {
+            flex-grow: 1;
+            padding-top: 2px;
+            margin-right: 10px; 
+        }
 
-    .progress-votes-info {
-      font-size: 20px;
-      font-weight: 400;
-      color: #212529;
-      line-height: 1.2;
-    }
+        .site-title {
+            font-size: 15.66px; 
+            font-weight: 400; 
+            color: #212529;
+            margin-bottom: 0px; 
+            line-height: 1.35; 
+        }
 
-    /* для плавного масштабирования на мобильных */
-    @media (max-width: 480px) {
-      .progress-circle {
-        width: 160px;
-        height: 160px;
-      }
-      .progress-votes-count {
-        font-size: 48px;
-      }
-      .progress-votes-info {
-        font-size: 16px;
-      }
-    }
-  </style>
+        .site-subtitle {
+            font-size: 15.66px; 
+            font-weight: 400; 
+            color: #212529;
+            line-height: 1.35; 
+        }
+
+        .menu-icon-container {
+            width: 40px;
+            height: 40px;
+            background-color: #213555; 
+            border-radius: 50%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto; 
+            flex-shrink: 0; 
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .header-separator {
+            border-bottom: 1px solid #dee2e6;
+            margin-bottom: 15px;
+        }
+
+        .content-block {
+            padding: 0 15px; 
+        }
+
+        .breadcrumb {
+            font-size: 16px;
+            font-weight: 400;
+            color: #212529;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb a {
+            color: #212529;
+            text-decoration: none;
+        }
+
+        .breadcrumb .arrow {
+            color: #f0b90b;
+            margin: 0 5px;
+            font-weight: 700;
+        }
+
+        .petition-main-title-duplicate {
+            margin-bottom: 20px;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.35;
+        }
+
+        .petition-main-title-duplicate span {
+            display: block;
+        }
+
+        .petition-number {
+            font-size: 16px;
+            font-weight: 500;
+            color: #212529;
+            margin: 40px 0 30px 0; 
+            line-height: 1.35;
+        }
+
+        .petition-main-title {
+            font-size: 23px; 
+            font-weight: 500; 
+            margin: 0;
+            line-height: 1.35;
+        }
+
+        .petition-main-title span {
+            display: block;
+        }
+
+        .petition-details-block {
+            margin-top: 30px; 
+            padding-bottom: 30px; 
+            border-bottom: 1px solid #dee2e6;
+            font-size: 16px;
+            font-weight: 400; 
+            color: #212529;
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: center; 
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .detail-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .icon-person {
+            background-image: url('https://img.icons8.com/ios11/512/FAB005/user-male.png');
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .icon-plus {
+            font-size: 20px; 
+            color: #f0b90b;
+            font-weight: 700; 
+        }
+
+        .petition-tabs {
+            text-align: center;
+            padding: 20px 0; 
+        }
+
+        .tab-item {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 16px; 
+            font-weight: 400;
+            color: #a0a0a0;
+            padding-bottom: 5px;
+        }
+
+        .tab-item.active {
+            color: #212529;
+            font-weight: 500;
+            border-bottom: 3px solid #f0b90b;
+        }
+
+        .petition-text-content {
+            padding: 20px 15px 15px 15px; 
+            line-height: 1.5; 
+            color: #212529;
+        }
+
+        .petition-text-content p {
+            margin-bottom: 1em; 
+            text-align: left; 
+            font-size: 18.4px;
+            font-weight: 400; 
+            line-height: 1.35; 
+        }
+
+        /* === ОБНОВЛЕННЫЙ БЛОК ПРОГРЕССА === */
+        .petition-progress-block {
+            margin: 20px 15px 30px 15px; 
+            padding: 20px 15px 20px 15px;
+            border: 1px solid #dee2e6; 
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .progress-chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .progress-circle {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #0056b3 0deg 121deg,
+                #e0e0e0 121deg 360deg
+            );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .progress-inner-circle {
+            position: absolute;
+            width: 86%;
+            height: 86%;
+            background-color: #e9ecef;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .progress-votes-count {
+            font-size: 64px;
+            font-weight: 500;
+            color: #212529;
+            margin-bottom: 5px;
+        }
+
+        .progress-votes-info {
+            font-size: 20px;
+            font-weight: 400;
+            color: #212529;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 480px) {
+            .progress-circle {
+                width: 160px;
+                height: 160px;
+            }
+            .progress-votes-count {
+                font-size: 48px;
+            }
+            .progress-votes-info {
+                font-size: 16px;
+            }
+        }
+
+        .status-line {
+            display: flex;
+            font-size: 16px; 
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .status-label {
+            color: #f0b90b; 
+            font-weight: 500; 
+            margin-right: 8px;
+        }
+
+        .remaining-days {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .progress-bar-container {
+            height: 5px;
+            background-color: #dee2e6; 
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 30.25%; 
+            background-color: #f0b90b; 
+            border-radius: 3px;
+        }
+
+        .auth-prompt-block {
+            margin-top: 20px; 
+            padding: 20px;
+            border: 2px solid #800000; 
+            border-radius: 4px; 
+            text-align: center;
+            font-size: 18px; 
+            color: #800000; 
+        }
+
+        .auth-prompt-block .auth-link {
+            text-decoration: underline dotted #800000; 
+            cursor: pointer;
+        }
+
+        .section-title {
+            font-size: 16px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .petition-name-after-title {
+            font-size: 23px; 
+            font-weight: 400;
+            line-height: 1.35;
+            margin-bottom: 30px;
+        }
+
+        .social-share-container {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0 30px;
+        }
+
+        .social-icon-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #dee2e6; 
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .social-icon {
+            font-weight: 700; 
+            font-size: 18px;
+            color: #212529;
+        }
+
+        .copy-url-text {
+            font-size: 16px;
+            margin-bottom: 30px; 
+        }
+
+        .add-to-favorite-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            margin: 30px auto;
+            padding: 10px 15px;
+            background-color: #fce899;
+            border: none;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+            color: #212529;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .add-to-favorite-button .heart-icon {
+            font-size: 18px;
+            margin-right: 8px;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="progress-chart-container">
-    <div class="progress-circle">
-      <div class="progress-inner-circle">
-        <div class="progress-votes-count">8393</div>
-        <div class="progress-votes-info">
-          голосів з 25000<br>необхідних
+<div class="container">
+
+    <div class="site-header">
+        <div class="site-logo-container">
+            <img class="site-logo" src="https://biotechuniv.edu.ua/wp-content/uploads/2024/01/news-18-01-24-petytsiya.png" alt="Логотип">
         </div>
-      </div>
+        <div class="site-title-block">
+            <div class="site-title">ЕЛЕКТРОННІ ПЕТИЦІЇ</div>
+            <div class="site-subtitle">
+                Офіційне інтернет-<br>представництво Президента<br>України
+            </div>
+        </div>
+        <div class="menu-icon-container">
+            <div class="menu-icon">&#x2261;</div> 
+        </div>
     </div>
-  </div>
+
+    <div class="header-separator"></div>
+
+    <div class="content-block">
+        <div class="breadcrumb">
+            <a href="#">Головна</a> <span class="arrow">&rsaquo;</span>
+        </div>
+
+        <h2 class="petition-main-title-duplicate">
+            Про присвоєння звання Героя України
+            <span>(посмертно) Новікову Олександру</span>
+            <span>Романовичу</span>
+        </h2>
+
+        <div class="petition-number">№22/251256-еп</div>
+
+        <h1 class="petition-main-title">
+            Про присвоєння звання Героя України
+            <span>(посмертно) Новікову Олександру</span>
+            <span>Романовичу</span>
+        </h1>
+
+        <div class="petition-details-block">
+            <div class="detail-row">
+                <span class="detail-icon icon-person"></span>
+                <div>
+                    Автор (ініціатор): 
+                    <span>Новікова Дар'я Анатоліївна</span>
+                </div>
+            </div>
+            <div class="detail-row">
+                <span class="detail-icon icon-plus">+</span> 
+                <div>
+                    Дата оприлюднення: <span>07 серпня 2025</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="petition-tabs">
+            <div class="tab-item">ВІДПОВІДЬ НА ПЕТИЦІЮ</div>
+            <div class="tab-item active">ТЕКСТ ПЕТИЦІЇ</div>
+            <div class="tab-item"><span class="tab-item-subline">ПІДПИСАНТИ</span></div>
+        </div>
+
+        <div class="petition-text-content">
+            <p>Прошу Президента України присвоїти звання Героя України (посмертно) Новікову Олександру Романовичу — воїну, батькові, патріоту, який віддав своє життя за свободу, незалежність та майбутнє нашої держави.</p>
+            <p>Новіков Олександр Романович, 16.11.1989 року народження, був добровольцем, який з перших днів повномасштабного вторгнення росії у 2022 році став на захист України у лавах Збройних Сил. Служив у складі 47-ї окремої механізованої бригади. Помер в лікарні 22 липня 2025 року внаслідок важких поранень, отриманих під час бойового завдання.</p>
+            <p>Олександр був не лише відданим воїном, а й люблячим батьком. Він жив своїми дітьми — Лєрою та Юрою, а діти жили ним. Його серце було сповнене любові до родини та Батьківщини, і саме ця любов надихала його до боротьби до останнього подиху.</p>
+            <p>Його подвиг — це не лише прояв військової звитяги, а й глибокий приклад справжньої людяності, честі та незламності українського духу. Вважаю, що такий Герой заслуговує на найвище державне визнання.</p>
+            <p>Слава Україні! Героям слава!</p>
+        </div>
+
+        <div class="petition-progress-block">
+            <div class="progress-chart-container">
+                <div class="progress-circle">
+                    <div class="progress-inner-circle">
+                        <div class="progress-votes-count">8393</div>
+                        <div class="progress-votes-info">
+                            голосів з 25000<br>необхідних
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-line">
+                <span class="status-label">Статус:</span> 
+                <span>Триває збір підписів</span>
+            </div>
+
+            <div class="remaining-days">Залишилося 22 дні</div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+
+            <div class="auth-prompt-block">
+                Для того, щоб підтримати<br>петицію, необхідно<br>
+                <span class="auth-link">авторизуватися.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-progress-elements">
+        <div class="section-title">СУТЬ ЗВЕРНЕННЯ:</div>
+        <div class="petition-name-after-title">
+            Про присвоєння звання Героя України
+            <span>(посмертно) Новікову Олександру</span>
+            <span>Романовичу</span>
+        </div>
+
+        <div class="section-title">ПОДІЛІТЬСЯ ПЕТИЦІЄЮ:</div>
+        <div class="social-share-container">
+            <div class="social-icon-button"><span class="social-icon">f</span></div>
+            <div class="social-icon-button"><span class="social-icon">t</span></div>
+            <div class="social-icon-button"><span class="social-icon">&#9993;</span></div>
+        </div>
+
+        <div class="copy-url-text">Скопіювання url петиції</div>
+    </div>
+
+    <button class="add-to-favorite-button">
+        <span class="heart-icon">&#x2661;</span> ДОДАТИ В ОБРАНЕ
+    </button>
+
+</div>
 
 </body>
 </html>
