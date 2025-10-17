@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Верхня частина сайту петицій</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=noto+sans:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
         /* Общие стили и сброс */
@@ -24,9 +24,6 @@
             max-width: 600px; 
             margin: 0 auto;
             padding: 0;
-            /* Обводка для имитации рамки мобильного устройства */
-            /* border: 15px solid #000;  */ 
-            /* border-bottom: none; */
         }
 
         /* Шапка сайта (header) */
@@ -42,7 +39,7 @@
             width: 34.8px;
             height: 34.8px;
             margin-right: 15px;
-            /* background-color: transparent; Прибрано фон, як на скріншоті */
+            background-color: transparent; 
             border-radius: 4px;
             padding: 0; 
             display: flex; 
@@ -55,6 +52,11 @@
             width: 100%; 
             height: 100%; 
             object-fit: contain; 
+        }
+
+        .site-logo img {
+            width: 100%;
+            height: 100%;
         }
 
         /* Блок з текстом */
@@ -75,11 +77,10 @@
 
         /* Стиль для наступних строк: Офіційне інтернет... */
         .site-subtitle {
-            font-size: 12px; /* Зменшено для відповідності скріншоту */
+            font-size: 15.66px; 
             font-weight: 400; 
             color: #212529;
             line-height: 1.35; 
-            opacity: 0.8; /* Трохи менш помітний */
         }
         
         /* Примусові переноси рядків для імітації макету */
@@ -92,26 +93,25 @@
         .menu-icon-container {
             width: 40px;
             height: 40px;
-            background-color: #fff; /* Білий фон, як на скріншоті */
+            background-color: #213555; 
             border-radius: 50%; 
             display: flex;
             justify-content: center;
             align-items: center;
             margin-left: auto; 
             flex-shrink: 0; 
-            border: 1px solid #dee2e6; /* Легка обводка */
         }
 
         .menu-icon {
             font-size: 24px;
-            color: #212529; /* Темний колір, як на скріншоті */
+            color: #fff;
             line-height: 1;
         }
         
         /* Разделитель между шапкой и контентом */
         .header-separator {
-            /* Прибрано, оскільки його немає на скріншоті */
-             margin-bottom: 0;
+            border-bottom: 1px solid #dee2e6;
+            margin-bottom: 15px;
         }
 
         /* Хлебные крошки и заголовок */
@@ -124,7 +124,6 @@
             font-weight: 400;
             color: #212529;
             margin-bottom: 10px;
-            padding-top: 10px;
         }
         
         .breadcrumb a {
@@ -137,21 +136,26 @@
             color: #f0b90b;
             margin: 0 5px;
             font-weight: 700;
-            font-size: 20px; /* Збільшено для кращої видимості */
         }
         
         /* Стиль для второго заголовка, що дублює перший (у хлібних крихтах) */
         .petition-main-title-duplicate {
-            /* Прибрано, оскільки його немає на скріншоті */
-            display: none;
+            margin-bottom: 20px;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.35;
         }
         
+        .petition-main-title-duplicate span {
+            display: block;
+        }
+
         /* Стиль для номера петиції (новий елемент) */
         .petition-number {
             font-size: 16px;
             font-weight: 500;
             color: #212529;
-            margin: 0 0 15px 0; /* Зменшено відступи */
+            margin: 40px 0 30px 0; 
             line-height: 1.35;
         }
 
@@ -159,7 +163,7 @@
         .petition-main-title {
             font-size: 23px; 
             font-weight: 500; /* Полужирный */
-            margin: 0 0 15px 0; /* Додано нижній відступ */
+            margin: 0;
             line-height: 1.35;
         }
         
@@ -170,8 +174,8 @@
         /* ----- СТИЛІ ЗІ СКРІНШОТА ----- */
         
         .petition-details-block {
-            margin-top: 20px; /* Зменшено відступ */
-            padding-bottom: 20px; 
+            margin-top: 30px; 
+            padding-bottom: 30px; 
             border-bottom: 1px solid #dee2e6;
             font-size: 16px;
             font-weight: 400; 
@@ -181,14 +185,9 @@
         .detail-row {
             display: flex;
             align-items: center; 
-            margin-bottom: 10px; /* Зменшено відступ */
+            margin-bottom: 15px;
             font-weight: 400;
         }
-        
-        .detail-row:last-child {
-            margin-bottom: 0;
-        }
-
 
         /* Загальний стиль для іконок у деталях */
         .detail-icon {
@@ -204,7 +203,7 @@
         
         /* Спеціальний стиль для іконки людини */
         .icon-person {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23212529" d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>');
+            background-image: url('https://img.icons8.com/ios11/512/FAB005/user-male.png');
             background-size: cover; 
             background-position: center;
             background-repeat: no-repeat;
@@ -228,9 +227,8 @@
         .petition-tabs {
             text-align: center;
             padding-top: 20px; 
-            padding-bottom: 0; /* Прибрано нижній паддінг */
+            padding-bottom: 20px; 
             margin-bottom: 10px; 
-            border-bottom: 1px solid #dee2e6;
         }
 
         .tab-item {
@@ -239,7 +237,7 @@
             font-size: 16px; 
             font-weight: 500;
             color: #a0a0a0;
-            padding-bottom: 15px; /* Збільшено відступ */
+            padding-bottom: 5px;
             cursor: pointer;
             transition: color 0.3s;
         }
@@ -257,13 +255,13 @@
         
         /* Примусовий перенос рядка для "ПІДПИСАНТИ" */
         .tab-item-subline {
-            /* Прибрано перенос рядка, як на скріншоті */
-             display: inline; 
+            display: block;
+            margin-top: 5px;
         }
 
         /* ----- СТИЛІ ДЛЯ НОВОГО ТЕКСТУ ПЕТИЦІЇ ----- */
         .petition-text-content {
-            padding: 20px 0 15px 0; /* Прибрано бічні паддінги */
+            padding: 20px 15px 15px 15px; 
             line-height: 1.5; 
             color: #212529;
         }
@@ -273,7 +271,7 @@
             margin-top: 0;
             margin-bottom: 1em; 
             text-align: justify; 
-            font-size: 18px; /* Розмір тексту, як на скріншоті */
+            font-size: 23px; /* Збільшений розмір як у заголовку */
             font-weight: 400; /* Звичайна товщина */
             line-height: 1.35; 
         }
@@ -281,7 +279,7 @@
         /* ----- СТИЛІ ДЛЯ БЛОКУ ПРОГРЕСУ (ЗА СКРІНШОТОМ) ----- */
         /* petition-progress-block теперь содержит и прогресс, и блок авторизации */
         .petition-progress-block {
-            margin: 20px 0 30px 0; /* Прибрано бічні відступи */
+            margin: 20px 15px 30px 15px; 
             padding: 20px 15px 20px 15px;
             font-size: 16px;
             font-weight: 400;
@@ -314,7 +312,7 @@
         .progress-inner-circle {
             width: 85%; 
             height: 85%;
-            background-color: #fff; /* Білий фон, як на скріншоті */
+            background-color: #f0f0f0; 
             border-radius: 50%;
             display: flex;
             flex-direction: column;
@@ -323,7 +321,6 @@
             text-align: center;
             line-height: 1.1;
             padding-top: 0px; 
-            border: 1px solid #dee2e6; /* Обведення, як на скріншоті */
         }
 
         .progress-votes-count {
@@ -361,8 +358,6 @@
             font-weight: 400;
             line-height: 1.5;
             margin-bottom: 25px;
-            text-align: right;
-            margin-top: -35px; /* Переміщено вправо */
         }
         
         /* Индикатор прогресса (желтая линия) */
@@ -371,7 +366,6 @@
             background-color: #dee2e6; 
             border-radius: 3px;
             overflow: hidden;
-            margin-bottom: 20px; /* Додано відступ */
         }
 
         .progress-bar {
@@ -383,10 +377,12 @@
 
         /* НОВЫЙ СТИЛЬ: Блок с бордовой рамкой */
         .auth-prompt-block {
+            /* Убраны боковые и нижние маржины, т.к. они уже есть у родителя.
+               Добавлен верхний маржин для отступа от прогресс-бара. */
             margin-top: 20px; 
             margin-left: 0;
             margin-right: 0;
-            padding: 10px 20px; /* Зменшено вертикальний паддінг */
+            padding: 20px;
             border: 2px solid #800000; 
             border-radius: 4px; 
             text-align: center;
@@ -394,8 +390,7 @@
             font-weight: 400;
             line-height: 1.5;
             color: #800000; 
-            box-shadow: none; 
-            margin-bottom: 30px; /* Додано відступ, як на скріншоті */
+            box-shadow: none; /* Убрана тень, чтобы не было двойной тени */
         }
 
         .auth-prompt-block .auth-link {
@@ -434,9 +429,8 @@
         .social-share-container {
             display: flex;
             gap: 10px; /* Відстань між іконками */
-            margin-top: 0; 
+            margin-top: 15px; 
             margin-bottom: 30px; 
-            align-items: center;
         }
 
         /* Кругла кнопка для іконок */
@@ -450,15 +444,13 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            
         }
-        
-        /* Стиль для іконок (використовуємо Font Awesome-подібні стилі або символи) */
+
+        /* Стилі для іконок (використовуємо Font Awesome-подібні стилі або символи) */
         .social-icon {
             font-size: 18px;
             color: #212529; /* Темний колір, як на скріншоті */
             line-height: 1;
-            font-weight: 700; /* Жирність, як на скріншоті */
         }
         
         /* Стиль для тексту "Скопіювання url петиції" */
@@ -467,15 +459,16 @@
             font-weight: 400;
             color: #212529;
             margin-bottom: 30px; 
-            margin-left: 10px; /* Для відповідності скріншоту */
         }
         
         /* Стиль для кнопки "ДОДАТИ В ОБРАНЕ" */
         .add-to-favorite-button {
-            display: block;
+            display: flex; /* Для центрування іконки та тексту */
+            justify-content: center;
+            align-items: center;
             width: calc(100% - 30px); /* Враховуємо зовнішні паддінги 15px * 2 */
-            max-width: 570px; /* Зменшуємо на 30px від 600px */
-            margin: 0 auto 30px auto; /* Центрування і нижній відступ */
+            max-width: 570px; 
+            margin: 30px auto 30px auto; /* Верхній відступ, центрування і нижній відступ */
             padding: 15px 20px;
             background-color: #f0b90b; /* Жовтий колір */
             border: none;
@@ -488,7 +481,7 @@
             text-transform: uppercase;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
             line-height: 1;
-            box-sizing: border-box; /* Важливо для розрахунку ширини */
+            box-sizing: border-box; 
         }
 
         .add-to-favorite-button .heart-icon {
@@ -496,89 +489,23 @@
             margin-right: 10px;
             line-height: 1;
             vertical-align: middle;
-            color: #fff; /* Біле серце, як на скріншоті */
         }
-
-        /* Коригуємо зовнішній відступ для розміщення кнопки у правильному місці */
-        .petition-progress-block-container {
-            /* Новий контейнер для центрування кнопки, якщо вона винесена з content-block */
-            padding: 0 15px; /* Забезпечуємо бічні відступи як у content-block */
+        
+        /* Коригуємо відступи для візуального відокремлення блоків */
+        .content-block {
+            padding: 0 15px; /* Залишаємо стандартний паддінг */
         }
 
         /* Прибираємо margin-bottom у petition-progress-block, щоб уникнути подвійних відступів */
         .petition-progress-block {
             margin-bottom: 0; 
         }
-
-        /* Коригуємо відступ у content-block, щоб він закінчувався перед фінальними елементами */
-        .content-block {
-            padding: 0 15px 0 15px; 
+        
+        /* Спеціальний контейнер для розміщення елементів після progress-block */
+        .post-progress-elements {
+             padding: 0 15px; /* Забезпечуємо бічні відступи як у content-block */
         }
         
-        /* Нові стилі для футера */
-        .footer-info {
-            padding: 0 15px 30px 15px;
-            text-align: center;
-        }
-
-        .copyright-block {
-            font-size: 14px; 
-            color: #212529; 
-            line-height: 1.5;
-            margin-bottom: 30px;
-            text-align: left; /* Вирівнювання ліворуч, як на скріншоті */
-        }
-
-        .copyright-block .president-office {
-            display: block;
-        }
-        
-        .footer-logo {
-            width: 48px; 
-            height: 48px;
-            margin: 0 0 30px 0; /* Вирівнювання ліворуч, як на скріншоті */
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Coat_of_Arms_of_Ukraine_official_style.svg/512px-Coat_of_Arms_of_Ukraine_official_style.svg.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: left; /* Вирівнювання ліворуч */
-            opacity: 0.5; 
-        }
-
-        .footer-link-block {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            border-top: 1px solid #dee2e6; /* Лінія над посиланнями */
-            padding-top: 10px;
-        }
-        
-        .footer-link {
-            display: block;
-            text-decoration: none;
-            color: #212529;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 1.35;
-            padding: 10px 0;
-            width: 48%; /* Розміщення у два стовпці */
-            text-align: left;
-        }
-        
-        .footer-link:nth-child(even) {
-            text-align: right;
-        }
-        
-        /* Стилі для нижньої частини, що повторює скріншот */
-        .petition-bottom-share {
-            padding: 0 15px;
-            margin-bottom: 30px; /* Відступ перед кнопкою */
-        }
-        
-        .petition-bottom-share .section-title {
-            margin-top: 30px;
-        }
-
     </style>
 </head>
 <body>
@@ -592,7 +519,9 @@
             <div class="site-title-block">
                 <div class="site-title">ЕЛЕКТРОННІ ПЕТИЦІЇ</div>
                 <div class="site-subtitle">
-                    Офіційне інтернет-представництво Президента України
+                    Офіційне інтернет-<br>
+                    представництво Президента<br>
+                    України
                 </div>
             </div>
             <div class="menu-icon-container">
@@ -606,22 +535,28 @@
             <div class="breadcrumb">
                 <a href="#">Головна</a> <span class="arrow">&rsaquo;</span>
             </div>
-            
+
+            <h2 class="petition-main-title-duplicate">
+                Про присвоєння звання Героя України
+                <span>(посмертно) Новікову Олександру</span>
+                <span>Романовичу</span>
+            </h2>
+
+            <div class="petition-number">
+                №22/251256-еп
+            </div>
+
             <h1 class="petition-main-title">
                 Про присвоєння звання Героя України
                 <span>(посмертно) Новікову Олександру</span>
                 <span>Романовичу</span>
             </h1>
-
-            <div class="petition-number">
-                №22/251256-еп
-            </div>
             
             <div class="petition-details-block">
                 
                 <div class="detail-row">
                     
-                    <span class="detail-icon icon-person"></span> 
+<span class="detail-icon icon-person"></span>
                     <div>
                         Автор (ініціатор): 
                         <span class="author-name">Новікова Дар'я</span>
@@ -698,50 +633,46 @@
                     <span class="auth-link">авторизуватися.</span>
                 </div>
                 
-                <div class="social-share-container">
-                    
-                    <div class="social-icon-button">
-                        <span class="social-icon">f</span> 
-                    </div>
-                    <div class="social-icon-button">
-                        <span class="social-icon">&#9993;</span> 
-                    </div>
-                    
-                    <div class="copy-url-text">
-                        Скопіювання url петиції
-                    </div>
-                    
-                </div>
-                
+            </div>
+        </div>
+
+        <div class="post-progress-elements">
+            
+            <div class="section-title">
+                СУТЬ ЗВЕРНЕННЯ:
             </div>
             
+            <div class="petition-name-after-title">
+                Про присвоєння звання Героя України
+                <span>(посмертно) Новікову Олександру</span>
+                <span>Романовичу</span>
+            </div>
+
             <div class="section-title">
                 ПОДІЛІТЬСЯ ПЕТИЦІЄЮ:
             </div>
             
-            <button class="add-to-favorite-button">
-                <span class="heart-icon">&#x2661;</span> ДОДАТИ В ОБРАНЕ
-            </button>
+            <div class="social-share-container">
+                <div class="social-icon-button">
+                    <span class="social-icon">f</span> 
+                </div>
+                <div class="social-icon-button">
+                    <span class="social-icon">t</span> 
+                </div>
+                <div class="social-icon-button">
+                    <span class="social-icon">&#9993;</span> 
+                </div>
+            </div>
             
+            <div class="copy-url-text">
+                Скопіювання url петиції
+            </div>
         </div>
         
-        <div class="footer-info">
-            
-            <div class="copyright-block">
-                <div class="footer-logo"></div> 
-                Усі права на матеріали, розміщені на цьому<br>
-                сайті, належать Офісу Президента України.<br>
-                01220, м. Київ, вул. Банкова, 11
-            </div>
-
-            <div class="footer-link-block">
-                <a href="#" class="footer-link">Урядовий портал</a>
-                <a href="#" class="footer-link">Верховна Рада України</a>
-                <a href="#" class="footer-link">Конституційний Суд України</a>
-                <a href="#" class="footer-link">Конституція України</a>
-            </div>
-
-        </div>
+        <button class="add-to-favorite-button">
+            <span class="heart-icon">&#x2661;</span> ДОДАТИ В ОБРАНЕ
+        </button>
+        
 
     </div>
 
